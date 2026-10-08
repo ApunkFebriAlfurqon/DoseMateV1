@@ -1,22 +1,11 @@
 # DoseMate
 
 Aplikasi mobile sederhana untuk mencatat obat dan jadwal minum obat.
-Dibuat dengan **React Native + Expo + TypeScript** untuk **Tugas Pekan Demo Pemrograman Mobile – Modul 1**.
+Dibuat dengan **React Native + Expo + TypeScript** 
 
 Tidak menggunakan backend atau server database. Data obat disimpan pada penyimpanan lokal perangkat menggunakan AsyncStorage, sehingga tetap ada setelah aplikasi ditutup dan dibuka kembali. Menghapus data aplikasi dapat menghapus data obat tersebut.
 
-## Cara Menjalankan
 
-```bash
-npm install
-npx expo start
-```
-
-Lalu scan QR code dengan aplikasi **Expo Go** (Android/iOS), atau tekan `a` untuk emulator Android.
-
-## Struktur Project
-
-```
 DoseMate/
 ├── App.tsx                     # Halaman utama: state, custom function, UI
 ├── components/
@@ -31,23 +20,6 @@ DoseMate/
     └── medicine.ts             # Custom function: getStatusLabel, getGreeting, isValidTime
 ```
 
-## Penerapan Materi Modul 1
-
-| Materi | Lokasi |
-|---|---|
-| Basic components (`View`, `Text`, `TextInput`, `Pressable`, `ScrollView`) | `App.tsx`, `components/MedicineCard.tsx` |
-| JSX / TSX | Seluruh file `.tsx` |
-| StyleSheet | `StyleSheet.create` di `constants/styles.ts` |
-| External Styling | `constants/styles.ts`, di-import dengan `import { styles, colors } ...` |
-| Inline Styling | Lebar progress bar `{ width: \`${progress.percent}%\` }` di `App.tsx`; warna status `{ color: ... }` di `MedicineCard.tsx` |
-| Variable `const` / `let` | `const` untuk state & fungsi; `let nextId` di `handleAddMedicine` |
-| Condition | Ternary di `getStatusLabel`, `if / else if` di `getGreeting`, `isInfoOpen && (...)`, validasi form, tampilan error |
-| Custom Function | `calculateProgress`, `handleMarkTaken`, `handleAddMedicine`, `handleToggleInfo`, `getStatusLabel`, `getGreeting`, `isValidTime`, `MedicineCard` |
-| Loop | `medicines.map(...)`, `todaySchedule.map(...)`, `forEach` untuk mencari id baru |
-| Array of Objects | `initialMedicines` di `data/medicines.ts` |
-| Type / Interface | `Medicine`, `MedicineStatus`, `Progress`, `MedicineCardProps` |
-| Penyimpanan lokal | `@react-native-async-storage/async-storage` untuk menyimpan data obat di perangkat |
-| Package / Library | `@expo/vector-icons` (Ionicons) untuk ikon tombol Info |
 
 ## Penjelasan Loop
 
@@ -73,10 +45,3 @@ medicines.map((medicine) => (
 5. **Info** – tombol Info menampilkan nama, dosis, jam minum, dan catatan obat (kartu bisa dibuka/ditutup).
 6. **Tambah Obat** – isi nama, dosis, jam (`HH:MM`), dan catatan opsional, lalu tekan **Tambah Obat**. Input divalidasi sebelum data masuk ke array.
 
-## Alur Demo yang Disarankan
-
-1. Tunjukkan dashboard dan progress awal (1 / 3 obat, 33%).
-2. Tekan **Info** pada salah satu obat.
-3. Tekan **Tandai Sudah Diminum** pada obat berstatus pending; perhatikan status, progress, dan persen berubah langsung.
-4. Tambahkan obat baru lewat form; perhatikan kartu baru muncul dan progress menyesuaikan (misalnya 2 / 4 obat, 50%).
-5. Buka `App.tsx`, `components/MedicineCard.tsx`, dan `constants/styles.ts` untuk menjelaskan kode.
